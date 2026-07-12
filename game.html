@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Up — RulzStore</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="shell">
+      <a href="/" class="logo"><span class="dot"></span>RulzStore</a>
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" placeholder="Search for a game" onfocus="location.href='/'" />
+      </div>
+      <nav class="header-links">
+        <a href="/#games">All Games</a>
+        <a href="/track.html" class="track-order-btn">Track Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="breadcrumb"><a href="/">Home</a> / <span id="crumbName">Loading…</span></div>
+
+    <div class="game-header" id="gameHeader"></div>
+
+    <div class="steps-nav">
+      <div class="step current"><span class="n">1</span> Choose product</div>
+      <div class="step"><span class="n">2</span> Enter ID</div>
+      <div class="step"><span class="n">3</span> Pay</div>
+    </div>
+
+    <div class="layout-2col">
+      <div>
+        <div class="form-section">
+          <h2>1. Choose an amount</h2>
+          <p class="help" id="currencyHelp"></p>
+          <div class="product-grid" id="productGrid"></div>
+        </div>
+
+        <div class="form-section">
+          <h2>2. Enter your account details</h2>
+          <p class="help" id="idHelp"></p>
+          <div class="field-row" id="idFields"></div>
+        </div>
+
+        <div class="form-section">
+          <h2>3. Choose payment method</h2>
+          <p class="help">This is a demo store — no real charge will be made.</p>
+          <div class="pay-methods" id="payMethods">
+            <div class="pay-method" data-method="E-Wallet"><span class="swatch" style="background:#35e6c6"></span>E-Wallet</div>
+            <div class="pay-method" data-method="Online Banking"><span class="swatch" style="background:#6c4cf1"></span>Online Banking</div>
+            <div class="pay-method" data-method="Credit / Debit Card"><span class="swatch" style="background:#ffc857"></span>Card</div>
+            <div class="pay-method" data-method="Convenience Store"><span class="swatch" style="background:#ff3d81"></span>Store Cash-in</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="summary-card">
+        <h3>Order summary</h3>
+        <div class="summary-row"><span>Game</span><span id="sumGame">—</span></div>
+        <div class="summary-row"><span>Item</span><span id="sumItem">Select an item</span></div>
+        <div class="summary-row"><span>Payment method</span><span id="sumPayment">Not selected</span></div>
+        <div class="summary-total">
+          <span class="label">Total</span>
+          <span class="value" id="sumTotal">RM0.00</span>
+        </div>
+        <button class="cta-btn" id="checkoutBtn" disabled>Select an amount to continue</button>
+      </aside>
+    </div>
+  </main>
+
+  <script src="/js/game.js"></script>
+</body>
+</html>

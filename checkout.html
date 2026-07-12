@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — RulzStore</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="shell">
+      <a href="/" class="logo"><span class="dot"></span>RulzStore</a>
+      <nav class="header-links" style="margin-left: auto;">
+        <a href="/">Cancel and go back</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell" style="max-width: 560px; padding-top: 40px;">
+    <div class="steps-nav">
+      <div class="step"><span class="n">✓</span> Product</div>
+      <div class="step"><span class="n">✓</span> Account ID</div>
+      <div class="step current"><span class="n">3</span> Confirm & pay</div>
+    </div>
+
+    <div class="form-section" id="reviewCard">
+      <h2>Review your order</h2>
+      <div class="receipt" id="receiptBody">Loading…</div>
+    </div>
+
+    <button class="cta-btn" id="payBtn">Confirm & pay</button>
+  </main>
+
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

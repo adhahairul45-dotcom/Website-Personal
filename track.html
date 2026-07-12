@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track Order — RulzStore</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="shell">
+      <a href="/" class="logo"><span class="dot"></span>RulzStore</a>
+    </div>
+  </header>
+
+  <main class="shell" style="max-width: 520px; padding-top: 48px; padding-bottom: 80px;">
+    <h2 class="section-title" style="margin-top:0;">Track your order</h2>
+    <div class="form-section">
+      <div class="field-row">
+        <div class="field" style="grid-column: 1 / -1;">
+          <label for="orderIdInput">Order ID</label>
+          <input id="orderIdInput" type="text" placeholder="e.g. RZ-ABC123-XYZ0" />
+        </div>
+      </div>
+      <button class="cta-btn" id="trackBtn" style="margin-top: 16px;">Check status</button>
+    </div>
+
+    <div class="form-section" id="resultCard" style="display:none;">
+      <h2>Order details</h2>
+      <div class="receipt" id="resultBody"></div>
+    </div>
+  </main>
+
+  <script>
+    const input = document.getElementById("orderIdInput");
+    const btn = document.getElementById("trackBtn");
+    const resultCard = document.getElementById("resultCard");
+    const resultBody = document.getElementById("resultBody");
+
+    function money(n) {
+      return `RM${n.toFixed(2)}`;
+    }
+
+    async function check() {
+      const id = input.value.trim();
+      if (!id) return;
+
+      resultCard.style.display = "block";
+      resultBody.innerHTML = "Looking up your order…";
+
+      try {
+        const res = await fetch(`/api/orders/${encodeURIComponent(id)}`);
+        if (!res.ok) throw new Error("not found");
+        const order = await res.json();
+
+        resultBody.innerHTML = `
+          <div class="row"><span>Order ID</span><span>${order.id}</span></div>
+          <div class="row"><span>Game</span><span>${order.gameName}</span></div>
+          <div class="row"><span>Item</span><span>${order.productLabel}</span></div>
+          <div class="row"><span>Amount</span><span>${money(order.price)}</span></div>
+          <div class="row"><span>Status</span><span>${order.status === "success" ? "✅ Delivered" : "⏳ Processing"}</span></div>
+        `;
+      } catch (err) {
+        resultBody.innerHTML = `We couldn't find an order with that ID. Double-check and try again.`;
+      }
+    }
+
+    btn.addEventListener("click", check);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") check();
+    });
+  </script>
+</body>
+</html>

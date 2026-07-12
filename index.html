@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RulzStore — Instant Game Top-Up</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="shell">
+      <a href="/" class="logo"><span class="dot"></span>RulzStore</a>
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input id="searchInput" type="text" placeholder="Search for a game, e.g. Mobile Legends" />
+      </div>
+      <nav class="header-links">
+        <a href="#games">All Games</a>
+        <a href="/track.html" class="track-order-btn">Track Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="shell">
+      <div class="hero-eyebrow">⚡ Delivered in under 5 minutes</div>
+      <h1>Top up your <span>favorite games</span>, instantly.</h1>
+      <p>No account needed. Pick a game, enter your ID, choose an amount, and pay. Diamonds, UC, VP and wallet codes — all in one place.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">8</div>
+          <div class="label">Games supported</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">24/7</div>
+          <div class="label">Order processing</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">RM</div>
+          <div class="label">Local pricing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="shell" id="games">
+    <div class="filters" id="filterChips">
+      <button class="filter-chip active" data-category="all">All</button>
+      <button class="filter-chip" data-category="MOBA">MOBA</button>
+      <button class="filter-chip" data-category="Battle Royale">Battle Royale</button>
+      <button class="filter-chip" data-category="RPG">RPG</button>
+      <button class="filter-chip" data-category="FPS">FPS</button>
+      <button class="filter-chip" data-category="Wallet Code">Wallet Codes</button>
+    </div>
+
+    <h2 class="section-title">Choose your game</h2>
+    <div class="game-grid" id="gameGrid">
+      <!-- populated by js/app.js -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="foot-row">
+        <span>© 2026 RulzStore. This is a demo storefront — no real payments are processed.</span>
+        <div class="trust-badges">
+          <span>🔒 Secure checkout</span>
+          <span>⚡ Instant delivery</span>
+          <span>💬 24/7 support</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
